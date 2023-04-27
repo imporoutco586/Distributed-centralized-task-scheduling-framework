@@ -23,7 +23,7 @@ with workflow.unsafe.imports_passed_through():
 
 async def main():
     # Create client connected to server at the given address
-    client = await Client.connect("192.168.120.129:7233")
+    client = await Client.connect("192.168.120.133:7233")
 
     # Run the worker
     worker = Worker(

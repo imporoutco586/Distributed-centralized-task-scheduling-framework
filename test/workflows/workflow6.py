@@ -149,15 +149,11 @@ async def main():
         # would be in a completely separate process from the worker.
         
     
-    with open('pubkey1.pem') as f:
-        pubkey1 = rsa.PublicKey.load_pkcs1(f.read().encode())
-    with open('pubkey2.pem') as f:
-        pubkey2 = rsa.PublicKey.load_pkcs1(f.read().encode())
-    with open('pubkey3.pem') as f:
-        pubkey3 = rsa.PublicKey.load_pkcs1(f.read().encode())
-
+    pubkey1 = rsa.PublicKey.load_pkcs1(r.get('pu1'))
+    pubkey2 = rsa.PublicKey.load_pkcs1(r.get('pu2'))
     myid = str(random.randrange(1,99999))
-    string = '101'
+    print('input your id:')
+    string = str(input())
     string1 = rsa.encrypt(string.encode('utf-8'), pubkey1)
     string2 = rsa.encrypt(string.encode('utf-8'), pubkey2)
     print(type(string))
@@ -206,6 +202,8 @@ async def main():
     result1 = eval(result1.decode('utf-8'))
     result2 = rsa.decrypt(result2,privkey3)
     result2 = eval(result2.decode('utf-8'))
+    
+    
     
     print(result1)
     print(result2)

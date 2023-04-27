@@ -8,7 +8,7 @@ from temporalio import workflow
 import sys
 sys.path.append('..')
 # Import the activity and workflow from our other files
-from  workflows.workflow8 import RTWorkflow,returndegree
+from  workflows.workflow9 import Train2Workflow,returntrain2
 
 
 with workflow.unsafe.imports_passed_through():
@@ -28,9 +28,9 @@ async def main():
     # Run the worker
     worker = Worker(
         client,
-        task_queue="returndegree",
-        workflows=[RTWorkflow],
-        activities=[returndegree],
+        task_queue="train2",
+        workflows=[Train2Workflow],
+        activities=[returntrain2],
     )
     result = await worker.run()
 
