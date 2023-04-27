@@ -1,0 +1,2 @@
+su root //enter the root style
+poetry run python hello/hello_activity.py //
